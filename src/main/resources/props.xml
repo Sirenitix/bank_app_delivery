@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="AccountBasicCLI" class="swag.rest.bank_app_delivery.entity.internal.AccountBasicCLI"><constructor-arg ref="MyCLI"/><constructor-arg ref="BankCore"/><constructor-arg ref="AccountListingServiceImpl"/></bean>
+    <bean id="AccountListingService" class="swag.rest.bank_app_delivery.service.AccountListingService" abstract="true"></bean>
+    <bean id="AccountListingServiceImpl" class="swag.rest.bank_app_delivery.service.internal.AccountListingServiceImpl"><constructor-arg ref="MemoryAccountDAO"/></bean>
+    <bean id="AccountCreationService" class="swag.rest.bank_app_delivery.service.AccountCreationService" abstract="true"></bean>
+    <bean id="AccountCreationServiceImpl" class="swag.rest.bank_app_delivery.service.internal.AccountListingServiceImpl"><constructor-arg ref="MemoryAccountDAO"/></bean>
+    <bean id="AccountDAO" class="swag.rest.bank_app_delivery.dao.AccountDAO" abstract="true"></bean>
+    <bean id="BankCore" class="swag.rest.bank_app_delivery.service.BankCore"></bean>
+    <bean id="CreateAccountOperationUI" class="swag.rest.bank_app_delivery.entity.CreateAccountOperationUI" abstract="true"/>
+    <bean id="CLIUI" class="swag.rest.bank_app_delivery.entity.CLIUI" abstract="true"/>
+    <bean id="MemoryAccountDAO" class="swag.rest.bank_app_delivery.dao.internal.MemoryAccountDAO"></bean>
+    <bean id="MyCLI" class="swag.rest.bank_app_delivery.service.MyCLI"></bean>
+
+    <context:component-scan base-package="swag.rest.bank_app_delivery"/>
+</beans>
