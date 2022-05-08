@@ -19,7 +19,7 @@ public class BankAppDeliveryApplication {
                     "1 - show accounts\n" +
                     "2 - create account\n" +
                     "3 - deposit\n" +
-                    "- withdraw\n" +
+                    "4 - withdraw\n" +
                     "5 - transfer\n" +
                     "6 - this message\n" +
                     "7 - exit");
@@ -27,7 +27,6 @@ public class BankAppDeliveryApplication {
                 try {
                 AccountBasicCLI accountBasicCLI = context.getBean(AccountBasicCLI.class);
                 MyCLI myCLI = context.getBean(MyCLI.class);
-                myCLI.setScanner(new Scanner(System.in));
                 switch (myCLI.getScanner().nextLine()) {
                     case "1":
                         accountBasicCLI.getAccounts("1");
@@ -49,3 +48,4 @@ public class BankAppDeliveryApplication {
 
     }
 }
+

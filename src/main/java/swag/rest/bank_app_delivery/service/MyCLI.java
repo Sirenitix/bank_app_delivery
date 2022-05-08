@@ -8,19 +8,12 @@ public class MyCLI implements CLIUI {
 
     private Scanner scanner;
 
-    public MyCLI(Scanner scanner) {
-        this.scanner = scanner;
-    }
-
     public MyCLI() {
+        this.scanner = new Scanner(System.in);;
     }
 
     public Scanner getScanner() {
         return scanner;
-    }
-
-    public void setScanner(Scanner scanner) {
-        this.scanner = scanner;
     }
 
     double requestClientAmount(){

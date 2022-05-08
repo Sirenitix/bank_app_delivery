@@ -1,5 +1,6 @@
 package swag.rest.bank_app_delivery.service;
 
+import swag.rest.bank_app_delivery.configuration.AdditionalConfiguration;
 import swag.rest.bank_app_delivery.entity.AccountType;
 import swag.rest.bank_app_delivery.service.internal.AccountListingServiceImpl;
 
@@ -8,8 +9,8 @@ public class BankCore {
     long lastAccountNumber = 1;
     AccountCreationService accountCreation;
 
-    public BankCore(AccountCreationService accountCreation) {
-        this.accountCreation = accountCreation;
+    public BankCore(AccountCreationService accountCreationService) {
+        this.accountCreation = accountCreationService;
     }
 
     public void createNewAccount(AccountType accountType, String clientID){
@@ -20,5 +21,6 @@ public class BankCore {
     void incrementLastAccountNumber(){
         lastAccountNumber++;
     }
+
 
 }

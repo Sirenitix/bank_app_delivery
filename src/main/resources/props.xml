@@ -13,11 +13,12 @@
     <bean id="AccountCreationService" class="swag.rest.bank_app_delivery.service.AccountCreationService" abstract="true"></bean>
     <bean id="AccountCreationServiceImpl" class="swag.rest.bank_app_delivery.service.internal.AccountListingServiceImpl"><constructor-arg ref="MemoryAccountDAO"/></bean>
     <bean id="AccountDAO" class="swag.rest.bank_app_delivery.dao.AccountDAO" abstract="true"></bean>
-    <bean id="BankCore" class="swag.rest.bank_app_delivery.service.BankCore"></bean>
+    <bean id="BankCore" class="swag.rest.bank_app_delivery.service.BankCore">
+        <constructor-arg ref="accountCreationService"/>
+    </bean>
     <bean id="CreateAccountOperationUI" class="swag.rest.bank_app_delivery.entity.CreateAccountOperationUI" abstract="true"/>
     <bean id="CLIUI" class="swag.rest.bank_app_delivery.entity.CLIUI" abstract="true"/>
     <bean id="MemoryAccountDAO" class="swag.rest.bank_app_delivery.dao.internal.MemoryAccountDAO"></bean>
     <bean id="MyCLI" class="swag.rest.bank_app_delivery.service.MyCLI"></bean>
-
     <context:component-scan base-package="swag.rest.bank_app_delivery"/>
 </beans>
