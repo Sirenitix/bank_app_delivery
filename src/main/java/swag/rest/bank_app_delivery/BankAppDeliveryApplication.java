@@ -37,7 +37,7 @@ public class BankAppDeliveryApplication {
                         break;
                     case "7":
                         System.out.println("Application closed");
-                        return;
+                         System.exit(0);
                     default:
                         System.out.println("Wrong input!");
                 }
